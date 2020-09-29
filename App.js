@@ -11,6 +11,7 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback, 
   Button,
+  Alert
  } from 'react-native';
 
 export default function App() {
@@ -18,7 +19,8 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Button 
         color="#123442"
-        title="Click Me" onPress={() => { console.log('Button Tapped')}} />
+        title="Click Me" // This API only works on IOS
+        onPress={() => { Alert.prompt('My Title', 'My Message', text => { console.log(text)} )}} />
     </SafeAreaView>
   );
 }
