@@ -23,3 +23,6 @@ If you have issues with `$npm start` check your `npm config get ignore-scripts` 
 ## Technologies Used
 
 
+
+## Good Imports
+SafeAreaView: Good for phones with overlaid hardware (Iphone 11)
