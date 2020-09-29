@@ -9,22 +9,16 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
   TouchableHighlight,
-  TouchableNativeFeedback,
+  TouchableNativeFeedback, 
+  Button,
  } from 'react-native';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text> 
-        Hello, React Native!
-      </Text>
-      <TouchableNativeFeedback
-        onPress={() => { console.log('Native Tapped') }}
-      >
-        <View
-          style={{width: 200, height: 70, backgroundColor: 'dodgerblue'}}
-        ></View>
-      </TouchableNativeFeedback>
+      <Button 
+        color="#123442"
+        title="Click Me" onPress={() => { console.log('Button Tapped')}} />
     </SafeAreaView>
   );
 }
