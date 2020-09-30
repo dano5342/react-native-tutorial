@@ -18,16 +18,16 @@ export default function App() {
       <View 
         style={{
           backgroundColor: 'dodgerblue',
-          width: 100,
-          height: 300,
-          alignSelf: "flex-start",
+          width: 400,
+          height: 100,
+          flex: -1,
         }}
       />
       <View 
         style={{
           backgroundColor: 'gold',
           width: 100,
-          height: 200,
+          height: 100,
         }}
       />
       <View 
@@ -37,6 +37,7 @@ export default function App() {
           height: 100,
         }}
       />
+
     </View>
   );
 }
