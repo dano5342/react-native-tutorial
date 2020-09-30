@@ -1,26 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { 
+import React from "react";
+import {
   StyleSheet,
-  Text, 
-  View, 
-  SafeAreaView, 
-  Image, 
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-  TouchableHighlight,
-  TouchableNativeFeedback, 
-  Button,
-  Alert
- } from 'react-native';
+  View,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+  Dimensions,
+} from "react-native";
+
+import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks'
+
 
 export default function App() {
+
+  const {landscape} = useDeviceOrientation();
+  console.log(useDeviceOrientation())
   return (
     <SafeAreaView style={styles.container}>
-      <Button 
-        color="#123442"
-        title="Click Me" // This API only works on IOS
-        onPress={() => { Alert.prompt('My Title', 'My Message', text => { console.log(text)} )}} />
+      <View style={{
+        backgroundColor: 'dodgerblue',
+        width: '100%',
+        height: landscape ? "100%" : "30%"
+      }}>
+      </View>
     </SafeAreaView>
   );
 }
@@ -28,9 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-
+    backgroundColor: "#fff",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
