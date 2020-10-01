@@ -11,7 +11,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import AppText from './app/components/AppText'
+import AppText from './app/components/AppText';
+import LoginButton from './app/components/LoginButton';
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <AppText> I Love React Native</AppText>
+      <LoginButton/>
     </View>
   );
 }
