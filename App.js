@@ -12,18 +12,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import AppText from './app/components/AppText';
-import LoginButton from './app/components/LoginButton';
+import AppButton from './app/components/AppButton';
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <LoginButton/>
-    </View>
+    <WelcomeScreen></WelcomeScreen>
   );
 }
