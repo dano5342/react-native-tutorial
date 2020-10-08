@@ -1,11 +1,13 @@
 import React from "react";
 import { View } from "react-native";
-import MessagesScreen from "./app/screens/MessagesScreen";
 
-import ViewImageScreen from './app/screens/ViewImageScreen'
+
+import AccountScreen from "./app/screens/AccountScreen";
+import ViewImageScreen from './app/screens/ViewImageScreen';
+import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 
 export default function App() {
 
-  return <MessagesScreen/>
+  return <ListingDetailsScreen/>
 
 }
