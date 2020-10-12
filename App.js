@@ -1,24 +1,28 @@
-import React, {useState} from "react";
-import { TextInput, Text } from "react-native";
+import React, { useState } from "react";
 
-import Screen from './app/components/Screen';
-import AppTextInput from './app/components/AppTextInput';
-import AppPicker from './app/components/AppPicker';
+import Screen from "./app/components/Screen";
+import AppPicker from "./app/components/AppPicker";
+import AppTextInput from "./app/components/AppTextInput";
 
-import AccountScreen from "./app/screens/AccountScreen";
-import ViewImageScreen from './app/screens/ViewImageScreen';
-import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
-import { Switch } from "react-native-gesture-handler";
-
-
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Cameras", value: 3 },
+];
 
 export default function App() {
+  const [category, setCategory] = useState(categories[0]);
+
   return (
-    <Screen>    
-      <AppPicker icon="apps" placeholder="Category" />
-      <AppTextInput icon="email" placeholder="Email"/>
+    <Screen>
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        items={categories}
+        icon="apps"
+        placeholder="Category"
+      />
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
-
-  )
-
+  );
 }
