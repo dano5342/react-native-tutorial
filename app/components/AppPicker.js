@@ -14,7 +14,7 @@ import Screen from "./Screen";
 import defaultStyles from "../config/styles";
 import PickerItem from "./PickerItem";
 
-export default function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
+function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -77,3 +77,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+export default AppPicker;
