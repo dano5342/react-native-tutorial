@@ -9,7 +9,7 @@ export default function SubmitButton({title}) {
     const {handleSubmit} = useFormikContext();
     return (
         <AppButton
-            title="Login"
+            title={title}
             onPress={handleSubmit}
         />
     )
