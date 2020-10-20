@@ -6,10 +6,13 @@ import AppText from './AppText';
 
 
 export default function ErrorMessage({error, visible}) {
-    if (!error || !visible) return null;
-    return (
-        <AppText style={styles.error}>{error}</AppText>
-    )
+    if (!error || !visible) return null
+    else {
+        return (
+            <AppText style={styles.error}>{error}</AppText>
+        )
+    }
+    
 }
 
 const styles = StyleSheet.create({
