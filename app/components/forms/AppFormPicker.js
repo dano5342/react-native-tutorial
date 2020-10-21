@@ -12,7 +12,6 @@ function AppFormPicker({ items, name, placeholder }) {
   return (
     <>
       <AppPicker
-        style={styles.text}
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
@@ -26,7 +25,4 @@ function AppFormPicker({ items, name, placeholder }) {
 export default AppFormPicker;
 
 const styles = StyleSheet.create({
-  text: {
-    placeholderColor: colors.medium
-  }
 })

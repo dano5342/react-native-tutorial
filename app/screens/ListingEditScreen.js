@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
 import { 
@@ -20,9 +20,15 @@ const validationSchema = Yup.object().shape({
 
 const categories = [
     {label: 'Furniture', value: 1},
-    {label: 'Clothing', value: 2},
-    {label: 'Electronics', value: 3},
-    {label: 'Other', value: 4}
+    {label: 'Cars', value: 2},
+    {label: 'Cameras', value: 3},
+    {label: 'Games', value: 4},
+    {label: 'Clothing', value: 5},
+    {label: 'Sports', value: 6},
+    {label: 'Movies', value: 7},
+    {label: 'Books', value: 8},
+    {label: 'Other', value: 9},
+    
 ]
 
 export default function ListingEditScreen() {
@@ -39,17 +45,21 @@ export default function ListingEditScreen() {
                 validationSchema={validationSchema}
             >
                 <AppFormField maxLength={255} name="title" placeholder="Title"/>
-                <AppFormField
-                    keyboardType="numeric"
-                    maxLength={8}
-                    name="price"
-                    placeholder="Price"
-                />
-                <AppFormPicker
-                    items={categories}
-                    name="category"
-                    placeholder="Category"
-                />
+                <View style={styles.price}>
+                    <AppFormField
+                        keyboardType="numeric"
+                        maxLength={8}
+                        name="price"
+                        placeholder="Price"
+                    />
+                </View>
+                <View style={styles.category}>
+                    <AppFormPicker
+                        items={categories}
+                        name="category"
+                        placeholder="Category"
+                    />
+                </View>
                 <AppFormField
                     maxLength={255}
                     multiline
@@ -65,6 +75,12 @@ export default function ListingEditScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        padding:10
+        padding: 10
+    },
+    price: {
+        width: "25%"
+    },
+    category: {
+        width: "50%"
     }
 })
