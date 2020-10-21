@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   view: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 export default Screen;

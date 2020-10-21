@@ -6,7 +6,7 @@ import defaultStyles from "../config/styles";
 
 function AppTextInput({ icon, width = "100%", ...otherProps }) {
   return (
-    <View style={[styles.container, {width}]}>
+    <View style={[styles.container, { width }]}>
       {icon && (
         <MaterialCommunityIcons
           name={icon}
@@ -15,11 +15,11 @@ function AppTextInput({ icon, width = "100%", ...otherProps }) {
           style={styles.icon}
         />
       )}
-      <TextInput 
+      <TextInput
         placeholderTextColor={defaultStyles.colors.medium}
         style={defaultStyles.text}
         {...otherProps}
-        />
+      />
     </View>
   );
 }

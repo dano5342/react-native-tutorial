@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-import AppText from "../AppText";
+import Text from "../Text";
 import colors from "../../config/colors";
 
 function ListItem({
@@ -19,15 +19,15 @@ function ListItem({
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
           {IconComponent}
-          {image !== 0 && <Image style={styles.image} source={image} />}
+          {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
-            <AppText style={styles.title} numberOfLines={1}>
+            <Text style={styles.title} numberOfLines={1}>
               {title}
-            </AppText>
-            {subTitle !== 0 && (
-              <AppText style={styles.subTitle} numberOfLines={2}>
+            </Text>
+            {subTitle && (
+              <Text style={styles.subTitle} numberOfLines={2}>
                 {subTitle}
-              </AppText>
+              </Text>
             )}
           </View>
           <MaterialCommunityIcons
