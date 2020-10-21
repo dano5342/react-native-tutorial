@@ -8,6 +8,7 @@ import {
     SubmitButton, 
     AppFormPicker
 } from '../components/forms';
+import CategoryPickItem from '../components/CategoryPickItem'
 import Screen from '../components/Screen';
 
 
@@ -19,17 +20,61 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-    {label: 'Furniture', value: 1},
-    {label: 'Cars', value: 2},
-    {label: 'Cameras', value: 3},
-    {label: 'Games', value: 4},
-    {label: 'Clothing', value: 5},
-    {label: 'Sports', value: 6},
-    {label: 'Movies', value: 7},
-    {label: 'Books', value: 8},
-    {label: 'Other', value: 9},
-    
-]
+    {
+      backgroundColor: "#fc5c65",
+      icon: "floor-lamp",
+      label: "Furniture",
+      value: 1,
+    },
+    {
+      backgroundColor: "#fd9644",
+      icon: "car",
+      label: "Cars",
+      value: 2,
+    },
+    {
+      backgroundColor: "#fed330",
+      icon: "camera",
+      label: "Cameras",
+      value: 3,
+    },
+    {
+      backgroundColor: "#26de81",
+      icon: "cards",
+      label: "Games",
+      value: 4,
+    },
+    {
+      backgroundColor: "#2bcbba",
+      icon: "shoe-heel",
+      label: "Clothing",
+      value: 5,
+    },
+    {
+      backgroundColor: "#45aaf2",
+      icon: "basketball",
+      label: "Sports",
+      value: 6,
+    },
+    {
+      backgroundColor: "#4b7bec",
+      icon: "headphones",
+      label: "Movies & Music",
+      value: 7,
+    },
+    {
+      backgroundColor: "#a55eea",
+      icon: "book-open-variant",
+      label: "Books",
+      value: 8,
+    },
+    {
+      backgroundColor: "#778ca3",
+      icon: "application",
+      label: "Other",
+      value: 9,
+    },
+];
 
 export default function ListingEditScreen() {
     return (
@@ -45,21 +90,21 @@ export default function ListingEditScreen() {
                 validationSchema={validationSchema}
             >
                 <AppFormField maxLength={255} name="title" placeholder="Title"/>
-                <View style={styles.price}>
-                    <AppFormField
-                        keyboardType="numeric"
-                        maxLength={8}
-                        name="price"
-                        placeholder="Price"
-                    />
-                </View>
-                <View style={styles.category}>
-                    <AppFormPicker
-                        items={categories}
-                        name="category"
-                        placeholder="Category"
-                    />
-                </View>
+                <AppFormField
+                    keyboardType="numeric"
+                    maxLength={8}
+                    name="price"
+                    placeholder="Price"
+                    width="25%"
+                />
+                <AppFormPicker
+                    items={categories}
+                    name="category"
+                    placeholder="Category"
+                    numberOfColumns={3}
+                    PickerItemComponent={CategoryPickItem}
+                    width="50%"
+                />
                 <AppFormField
                     maxLength={255}
                     multiline
@@ -77,10 +122,4 @@ const styles = StyleSheet.create({
     container: {
         padding: 10
     },
-    price: {
-        width: "25%"
-    },
-    category: {
-        width: "50%"
-    }
 })
