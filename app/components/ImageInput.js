@@ -11,7 +11,7 @@ import * as ImagePicker from "expo-image-picker";
 
 import colors from "../config/colors";
 
-function ImageInput({ imageURI, onChangeImage }) {
+function ImageInput({ imageUri, onChangeImage }) {
   useEffect(() => {
     requestPermission();
   }, []);
@@ -22,7 +22,7 @@ function ImageInput({ imageURI, onChangeImage }) {
   };
 
   const handlePress = () => {
-    if (!imageURI) selectImage();
+    if (!imageUri) selectImage();
     else
       Alert.alert("Delete", "Are you sure you want to delete this image?", [
         { text: "Yes", onPress: () => onChangeImage(null) },
@@ -45,14 +45,14 @@ function ImageInput({ imageURI, onChangeImage }) {
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
-        {!imageURI && (
+        {!imageUri && (
           <MaterialCommunityIcons
             color={colors.medium}
             name="camera"
             size={40}
           />
         )}
-        {imageURI && <Image source={{ uri: imageURI }} style={styles.image} />}
+        {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
       </View>
     </TouchableWithoutFeedback>
   );

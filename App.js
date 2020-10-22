@@ -4,16 +4,26 @@ import * as Permissions from 'expo-permissions';
 
 
 import Screen from './app/components/Screen';
-import { Button, Image } from "react-native";
 import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageURI, setImageURI] = useState();
+  const [imageUris, setImageUris] = useState([]);
+
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri]);
+  }
+  
+  const handleDelete = uri => {
+    setImageUris(imageUris.filter(imageUri => imageUri !== uri));
+  }
+
   return (
     <Screen>
-      <ImageInput
-        imageURI={imageURI}
-        onChangeImage={uri => setImageURI(uri)}
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleDelete}
       />
     </Screen>
   );
