@@ -4,21 +4,17 @@ import * as Permissions from 'expo-permissions';
 
 
 import Screen from './app/components/Screen';
+import { Button, Image } from "react-native";
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
-  
-  const requestPermission = async () => {
-    const {granted} = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (!granted) {
-      alert('You need to enable permission to access the library.')
-    }
-  }
-
-  useEffect( () => {
-    requestPermission();
-  }, [])
-
+  const [imageURI, setImageURI] = useState();
   return (
-    <Screen></Screen>
+    <Screen>
+      <ImageInput
+        imageURI={imageURI}
+        onChangeImage={uri => setImageURI(uri)}
+      />
+    </Screen>
   );
 }
